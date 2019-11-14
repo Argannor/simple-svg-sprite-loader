@@ -33,9 +33,7 @@ module.exports.svgAsModule = (svgObject) => {
     return `
 const domready = require('domready');
 const svg = ${JSON.stringify(svgObject)};     
-module.exports = {
-    ${svgObject.id}: svg
-};
+module.exports = svg;
 
 if(!window['__SVG']) { 
     window['__SVG'] = [];
