@@ -1,0 +1,19 @@
+{
+  "name": "simple-svg-sprite-loader",
+  "version": "1.0.0",
+  "description": "A simple webpack loader to load SVGs and automatically inject them into the DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Argannor",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.2"
+  },
+  "dependencies": {
+    "domready": "^1.0.8",
+    "svgo": "^1.3.2"
+  }
+}
