@@ -1,12 +1,21 @@
 {
   "name": "simple-svg-sprite-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple webpack loader to load SVGs and automatically inject them into the DOM",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "homepage": "https://github.com/Argannor/simple-svg-sprite-loader",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Argannor/simple-svg-sprite-loader.git"
+  },
+  "keywords": [
+    "svg",
+    "sprite",
+    "webpack"
+  ],
   "author": "Argannor",
   "license": "MIT",
   "devDependencies": {
