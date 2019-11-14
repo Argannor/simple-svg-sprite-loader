@@ -32,7 +32,7 @@ File structure:
 
 icons/my-icon.js
 ```javascript
-export const myIcon = require('!simple-svg-sprite-loader!icons/my-icon.svg');
+export const myIcon = require('!simple-svg-sprite-loader!./my-icon.svg');
 ```
 
 icons/icons.js
