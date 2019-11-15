@@ -1,5 +1,4 @@
 const Svgo = require('svgo');
-const svgo = new Svgo();
 
 module.exports = {};
 
@@ -23,8 +22,9 @@ module.exports.nameAsId = name => {
 };
 
 module.exports.svgAsObject = (svg, id) => {
+    const prefixedId = 'sssl-' + id;
     return {
-        id: id, svg: svg
+        id: prefixedId, svg: svg, name: id
     };
 };
 
@@ -39,8 +39,7 @@ if(!window['__SVG']) {
     window['__SVG'] = [];
     domready(function() {
         const div = document.createElement('div');
-        div.style.display = 'none';
-        div.innerHTML = '<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>' + window['__SVG'].map(svg => svg.svg).join('') + '</defs></svg>';
+        div.innerHTML = '<svg height="0" width="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>' + window['__SVG'].map(svg => svg.svg).join('') + '</defs></svg>';
         document.body.appendChild(div);
     })
 }
@@ -49,11 +48,17 @@ window['__SVG'].push(svg);
 `
 };
 
-module.exports.setId = (svg, id) => {
-    return `<svg id="${id}" ${svg.substring(5)}`;
+module.exports.setId = (svg) => {
+    svg.svg = `<svg id="${svg.id}" ${svg.svg.substring(5)}`;
+    return svg;
 };
 
 
-module.exports.optimizeSvg = (svg) => {
+module.exports.optimizeSvg = (svg, id) => {
+    const svgo = new Svgo({
+        plugins: [
+            {prefixIds: id}
+        ]
+    });
     return svgo.optimize(svg);
 };
