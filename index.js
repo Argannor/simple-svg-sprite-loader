@@ -1,14 +1,5 @@
 const utils = require('./utils');
 
-const schema = {
-    type: 'object',
-    properties: {
-        test: {
-            type: 'string'
-        }
-    }
-};
-
 module.exports = function (source) {
     const done = this.async();
     const fileName = utils.getFileName(this.resourcePath);

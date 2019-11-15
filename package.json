@@ -4,7 +4,7 @@
   "description": "A simple webpack loader to load SVGs and automatically inject them into the DOM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "homepage": "https://github.com/Argannor/simple-svg-sprite-loader",
   "repository": {
@@ -19,6 +19,7 @@
   "author": "Argannor",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^24.9.0",
     "webpack": "^4.41.2"
   },
   "dependencies": {
