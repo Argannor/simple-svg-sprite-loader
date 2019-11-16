@@ -1,5 +1,7 @@
 # simple-svg-sprite-loader
 
+[![codecov](https://codecov.io/gh/Argannor/simple-svg-sprite-loader/branch/master/graph/badge.svg)](https://codecov.io/gh/Argannor/simple-svg-sprite-loader)
+
 ## Install
 
 Install with npm
