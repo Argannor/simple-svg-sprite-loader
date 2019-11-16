@@ -28,5 +28,5 @@ jobs:
       name: uploade coverage to codecov.io
       with:
         token: ${{secrets.codecovio}} #required
-        file: .coverage/clover.xml #optional
+        file: ./coverage/clover.xml #optional
         flags: unittests #optional
