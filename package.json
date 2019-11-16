@@ -25,5 +25,9 @@
   "dependencies": {
     "domready": "^1.0.8",
     "svgo": "^1.3.2"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
