@@ -57,7 +57,7 @@ module.exports.setId = (svg) => {
 module.exports.optimizeSvg = (svg, id) => {
     const svgo = new Svgo({
         plugins: [
-            {prefixIds: id}
+            {prefixIds: { prefix: 'sssl-' + id }}
         ]
     });
     return svgo.optimize(svg);

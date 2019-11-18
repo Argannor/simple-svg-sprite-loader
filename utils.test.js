@@ -112,6 +112,35 @@ describe('[simple-svg-sprite-loader]: utils', () => {
             });
         });
 
+        test('should prefix ids to avoid collisions with other svgs', () => {
+           const svg = `<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient spreadMethod="pad" y2="1" x2="1" y1="0" x1="0" id="svg_4">
+   <stop offset="0" stop-color="#000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse ry="124" rx="237.5" id="svg_3" cy="213.450012" cx="298" stroke-width="1.5" stroke="#A0D58A" fill="url(#svg_4)"/>
+ </g>
+</svg>`;
+           return utils.optimizeSvg(svg, "mock-id").then(probe => {
+               const div = document.createElement('div');
+               div.innerHTML = probe.data;
+               const svgLinearGradientElement = div.querySelector('linearGradient');
+               expect(svgLinearGradientElement.id).toMatch(/sssl-mock-id.*/);
+           })
+        });
+
     });
 
     describe('utils.svgAsModule', () => {
