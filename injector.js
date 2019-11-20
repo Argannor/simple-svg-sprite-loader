@@ -12,19 +12,25 @@ module.exports = function (svgObject) {
     }
 };
 
+let _debounce = null;
+
 function addSvgToExistingSprite() {
-    debounce(function() {
-        const fragment = document.createDocumentFragment();
-        const svgString = window['__SVG'].map(svg => svg.svg).join('');
-        const div = document.createElement('div');
-        div.innerHTML = svgString;
-        const svgNodes = div.childNodes;
-        for(let i = 0; i < svgNodes.length; i++) {
-            fragment.append(svgNodes[i]);
-        }
-        document.getElementById('_sssl-defs').appendChild(fragment);
-        window['__SVG'] = [];
-    }, 30)();
+    if(!_debounce) {
+        _debounce = debounce(function() {
+            const fragment = document.createDocumentFragment();
+            const svgString = window['__SVG'].map(svg => svg.svg).join('');
+            // console.log(svgString);
+            const div = document.createElement('div');
+            div.innerHTML = svgString;
+            const svgNodes = div.childNodes;
+            while(svgNodes.length > 0) {
+                fragment.appendChild(svgNodes[0]);
+            }
+            document.getElementById('_sssl-defs').appendChild(fragment);
+            window['__SVG'] = [];
+        }, 30);
+    }
+    _debounce();
 }
 
 function initWithDomready() {
