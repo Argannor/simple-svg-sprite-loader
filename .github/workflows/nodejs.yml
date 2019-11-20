@@ -30,3 +30,4 @@ jobs:
         token: ${{secrets.codecovio}} #required
         file: ./coverage/clover.xml #optional
         flags: unittests #optional
+        yml: ./codecov.yml
