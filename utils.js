@@ -30,21 +30,10 @@ module.exports.svgAsObject = (svg, id) => {
 
 module.exports.svgAsModule = (svgObject) => {
     // exports the sprite by it's id and will add all svgs inside a sprite to document.body>div
-    return `
-const domready = require('domready');
+    return `const injector = require('simple-svg-sprite-loader/injector');
 const svg = ${JSON.stringify(svgObject)};     
 module.exports = svg;
-
-if(!window['__SVG']) { 
-    window['__SVG'] = [];
-    domready(function() {
-        const div = document.createElement('div');
-        div.innerHTML = '<svg height="0" width="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs>' + window['__SVG'].map(svg => svg.svg).join('') + '</defs></svg>';
-        document.body.appendChild(div);
-    })
-}
-
-window['__SVG'].push(svg);
+injector(svg);
 `
 };
 

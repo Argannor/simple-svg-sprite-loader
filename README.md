@@ -92,3 +92,5 @@ It will add something like this:
     </svg>
 </div>
 ```
+
+If your application lazily loads more icons, the injector will append them to the existing sprite (batched).
