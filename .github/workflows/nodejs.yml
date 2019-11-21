@@ -24,13 +24,6 @@ jobs:
         npm test
       env:
         CI: true
-   # - uses: codecov/codecov-action@v1.0.0
-  #    name: uploade coverage to codecov.io
-   #   with:
-  # #     token: ${{secrets.codecovio}} #required
-   #     file: ./coverage/clover.xml #optional
-  #      flags: unittests #optional
-   #     yml: ./codecov.yml
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.0.1
       with:

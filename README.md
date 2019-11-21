@@ -1,6 +1,6 @@
 # simple-svg-sprite-loader
 
-[![codecov](https://codecov.io/gh/Argannor/simple-svg-sprite-loader/branch/master/graph/badge.svg)](https://codecov.io/gh/Argannor/simple-svg-sprite-loader)
+[![Coverage Status](https://coveralls.io/repos/github/Argannor/simple-svg-sprite-loader/badge.svg?branch=master)](https://coveralls.io/github/Argannor/simple-svg-sprite-loader?branch=master)
 
 ## Install
 
