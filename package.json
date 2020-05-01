@@ -19,8 +19,8 @@
   "author": "Argannor",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^24.9.0",
-    "webpack": "^4.41.5"
+    "jest": "^25.5.3",
+    "webpack": "^4.43.0"
   },
   "dependencies": {
     "domready": "^1.0.8",
