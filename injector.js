@@ -18,7 +18,7 @@ function addSvgToExistingSprite() {
     if(!_debounce) {
         _debounce = debounce(function() {
             const fragment = document.createDocumentFragment();
-            const svgString = window['__SVG'].map(svg => svg.svg).join('');
+            const svgString = window['__SVG'].map(function(svg) {return svg.svg;}).join('');
             // console.log(svgString);
             const div = document.createElement('div');
             div.innerHTML = svgString;
@@ -40,7 +40,7 @@ function initWithDomready() {
     window['__SVG_domready'] = true;
     domready(function () {
         const div = document.createElement('div');
-        div.innerHTML = '<svg height="0" width="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs id="_sssl-defs">' + window['__SVG'].map(svg => svg.svg).join('') + '</defs></svg>';
+        div.innerHTML = '<svg height="0" width="0" style="position:absolute" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs id="_sssl-defs">' + window['__SVG'].map(function(svg) {return svg.svg;}).join('') + '</defs></svg>';
         document.body.appendChild(div);
         window['__SVG_initialized'] = true;
         window['__SVG'] = [];
